@@ -1,0 +1,4 @@
+interface:
+  display_name: "我的力扣专题笔记"
+  short_description: "沿用模范笔记形式，结合灵神题单整理核心可视化、通用模板和真实疑问"
+  default_prompt: "使用 $leetcode-notes，按网格图 DFS 模范笔记的形式整理当前小专题：主线、核心交互、通用模板、代表题变化与个人答疑；具体题解先确认采用灵神优化解法还是我的解法。"
