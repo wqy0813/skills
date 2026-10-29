@@ -2,35 +2,87 @@
 
 wqy0813 的个人 Agent Skills 合集，用于保存和持续改进学习、笔记与日常工作中可复用的流程。
 
-每个 Skill 独立存放，以 `SKILL.md` 为入口；较详细的模板和规则放在 `references/`，按需读取。
+当前可安装的技能包是 [`leetcode-notes/`](https://github.com/wqy0813/skills/tree/main/leetcode-notes)。其中的 [`leetcode-notes/SKILL.md`](https://github.com/wqy0813/skills/blob/main/leetcode-notes/SKILL.md) 是给 Agent 读取的说明文件。安装时需要保留整个技能目录，包括 `references/` 和 `agents/`。
+
+**第一次使用：把下方“安装到 Codex”里的整段请求复制给 Codex，明确指定要安装的仓库和子目录。**
 
 `leetcode-notes` 的[写作结构](./leetcode-notes/references/note-template.md)和[交互配色](./leetcode-notes/references/datacore-guide.md)均随包提供，不需要预先准备样板笔记。
 
 ## 技能索引
 
-| Skill | 适用场景 | 主要产出 |
+| 技能包目录 | 说明入口 | 适用场景 |
 | --- | --- | --- |
-| [leetcode-notes](./leetcode-notes/) | 按灵茶山艾府题单整理刷题笔记、学习算法小专题、复盘个人疑问 | 中文 Obsidian Markdown 笔记，包含 Datacore 核心演示、通用模板、代表题变化与个人答疑 |
+| [leetcode-notes](./leetcode-notes/) | [SKILL.md](./leetcode-notes/SKILL.md) | 按灵茶山艾府题单整理中文 Obsidian 刷题笔记，包含 Datacore 演示、通用模板与个人答疑 |
 
-## 快速使用
+## 安装到 Codex
 
-使用 [Skills CLI](https://github.com/vercel-labs/skills) 安装所需技能：
+### 方法一：把下面整段请求复制给 Codex
+
+适用于有本地文件写入和 GitHub 下载能力的 Codex 环境。
+
+```text
+请使用 $skill-installer 安装以下 GitHub 技能：
+仓库：https://github.com/wqy0813/skills
+分支：main
+技能目录：leetcode-notes
+技能目录地址：https://github.com/wqy0813/skills/tree/main/leetcode-notes
+
+请下载并安装完整的 leetcode-notes 文件夹，保留 SKILL.md、references/ 和 agents/，
+使用当前 Codex 环境支持的用户级技能安装位置。
+安装后检查文件是否齐全，并告诉我实际安装路径与识别情况。
+如果下载或写入失败，请报告具体错误。
+```
+
+这里已经明确了仓库 `wqy0813/skills`、分支 `main` 和仓库内路径 `leetcode-notes`，Codex 可据此定位安装内容。OpenAI 官方文档支持使用 `$skill-installer` 从其他仓库下载技能；安装后通常会自动识别，未出现时可重启 Codex。[官方说明](https://learn.chatgpt.com/docs/build-skills#install-curated-skills-for-local-use)
+
+### 方法二：Skills CLI
+
+已安装 Node.js 的用户也可以使用 [Skills CLI](https://github.com/vercel-labs/skills)：
 
 ```bash
 npx skills add wqy0813/skills --skill leetcode-notes
 ```
 
-按命令提示选择目标 Agent 和安装范围。也可以克隆仓库，将所需 Skill 的完整目录复制到所用 Agent 的技能目录，保留其中的参考文档。
+按提示选择目标 Agent 和安装范围。
+
+### 方法三：手动复制完整技能目录
+
+克隆仓库：
 
 ```bash
 git clone https://github.com/wqy0813/skills.git
 ```
 
-安装后，可在支持技能调用的 Agent 中使用：
+从克隆结果中取出 `leetcode-notes/`，将整个文件夹复制到 Codex 支持的技能目录。当前官方文档列出的用户级目录为 `$HOME/.agents/skills/`，项目级目录为 `.agents/skills/`；使用内置安装器时按其当前环境配置的目标位置安装。[目录说明](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)
+
+复制后保留以下结构，避免多套一层仓库目录或遗漏参考文件：
 
 ```text
-使用 $leetcode-notes，帮我整理网格图 DFS 小专题笔记，保存到指定的 Obsidian 目录。
+<技能目录>/
+└── leetcode-notes/
+    ├── SKILL.md
+    ├── agents/
+    │   └── openai.yaml
+    └── references/
+        ├── note-template.md
+        ├── topic-sources.md
+        └── datacore-guide.md
 ```
+
+## 安装后使用
+
+```text
+使用 $leetcode-notes，帮我整理网格图 DFS 小专题笔记，保存到我指定的 Obsidian 目录。
+```
+
+技能安装和 Obsidian 插件配置分别处理：笔记里的交互展示使用 Datacore，需要在目标 Obsidian 库中启用相应插件与 JavaScript 视图。
+
+## 找不到入口时
+
+- **仓库根目录没有 `SKILL.md`**：本仓库是技能合集，当前技能说明在 [`leetcode-notes/SKILL.md`](https://github.com/wqy0813/skills/blob/main/leetcode-notes/SKILL.md)，完整安装目录在 [`leetcode-notes/`](https://github.com/wqy0813/skills/tree/main/leetcode-notes)。
+- **只下载了一个说明文件**：补齐同目录下的 `references/` 和 `agents/`，保持上面的结构。
+- **已下载但 Codex 没有识别**：核对实际安装目录与 `SKILL.md`，避免把整个 `skills` 仓库当作一个技能目录；必要时重启 Codex。
+- **Codex 报网络或权限错误**：按实际错误处理下载或写入条件；仅贴仓库链接无法保证安装成功。
 
 ## leetcode-notes
 
