@@ -1,8 +1,8 @@
 # 题单、目录与来源
 
-按用户现有 12 个章节目录定位笔记，默认在章内按小专题分文件。章入口可能叫 `打卡题单.md`，以实际文件为准；不另建旧版的“一章一个同名 Markdown”结构。
+下表给出灵神 12 个题单对应的建议章节目录，使用者不必预先建立这些目录。已有笔记时先沿用其组织方式；新建时只创建本次涉及的章节与小专题。`leetcode/` 和 `打卡题单.md` 均为命名示例，以用户指定的位置和已有文件为准。
 
-| 章 | leetcode 下的章节目录 | 灵神题单 |
+| 章 | 建议章节目录 | 灵神题单 |
 | --- | --- | --- |
 | 01 | 01 滑动窗口与双指针/ | [滑动窗口与双指针](https://leetcode.cn/discuss/post/3578981/ti-dan-hua-dong-chuang-kou-ding-chang-bu-rzz7/) |
 | 02 | 02 二分查找/ | [二分算法](https://leetcode.cn/discuss/post/3579164/ti-dan-er-fen-suan-fa-er-fen-da-an-zui-x-3rqn/) |
@@ -25,4 +25,4 @@
 2. 具体题解从[作者题解精选](https://github.com/EndlessCheng/codeforces-go/blob/master/leetcode/SOLUTIONS.md)、题单引用或题号检索定位，打开作者信息和正文核实。[课程与代码入口](https://github.com/EndlessCheng/codeforces-go/blob/master/leetcode/README.md)可辅助定位，只有代码不等于读过题解。
 3. 搜索摘要、网页空壳和转载不替代原文。关键资料无法访问时，请用户提供原文或确认接受明确标注的独立推导；其余有依据的部分可继续。引用自己的概括，不大段复制，也不把独立推导归给作者。
 
-来源主要收在笔记末尾，题内就近附所选灵神题解链接或用户代码依据。模范笔记决定组织方式，不替代算法来源与解法选择。
+来源主要收在笔记末尾，题内就近附所选灵神题解链接或用户代码依据。输出结构依据随包提供的 `note-template.md`，不替代算法来源与解法选择。

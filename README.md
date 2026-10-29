@@ -4,6 +4,8 @@ wqy0813 的个人 Agent Skills 合集，用于保存和持续改进学习、笔�
 
 每个 Skill 独立存放，以 `SKILL.md` 为入口；较详细的模板和规则放在 `references/`，按需读取。
 
+`leetcode-notes` 的[写作结构](./leetcode-notes/references/note-template.md)和[交互配色](./leetcode-notes/references/datacore-guide.md)均随包提供，不需要预先准备样板笔记。
+
 ## 技能索引
 
 | Skill | 适用场景 | 主要产出 |
